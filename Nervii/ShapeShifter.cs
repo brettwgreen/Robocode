@@ -20,6 +20,7 @@ namespace Nervii
             //robotBehaviors.Add(new OrbisBehavior(this));
             //robotBehaviors.Add(new SpinBotBehavior(this));
             robotBehaviors.Add(new ShockWaveBehavior(this));
+            robotBehaviors.Add(new RambotBehavior(this));
             currentBehavior = robotBehaviors[currentBehaviorIndex];
         }
       
@@ -86,7 +87,10 @@ namespace Nervii
         {
             SetNextBehavior();
         }
-
+        public override void OnKeyPressed(KeyEvent e)
+        {
+            currentBehaviorIndex++;
+        }
 
     }
 }
