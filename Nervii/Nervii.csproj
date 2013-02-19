@@ -50,6 +50,7 @@
     <Compile Include="OrbisBehavior.cs" />
     <Compile Include="OrbisBot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RambotBehavior.cs" />
     <Compile Include="RobotExtensions.cs" />
     <Compile Include="ShapeShifter.cs" />
     <Compile Include="ShockWaveBehavior.cs" />
