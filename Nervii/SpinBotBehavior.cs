@@ -45,6 +45,12 @@ namespace Nervii
             
         }
 
+        public void OnHitWallBehavior(HitWallEvent evnt)
+        {
+
+        }
+
+
         public void OnHitRobotBehavior(HitRobotEvent evnt)
         {
             if (evnt.Bearing > -10 && evnt.Bearing < 10)

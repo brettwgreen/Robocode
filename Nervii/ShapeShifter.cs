@@ -17,8 +17,9 @@ namespace Nervii
         public ShapeShifter()
         {
 
-            robotBehaviors.Add(new OrbisBehavior(this));
-            robotBehaviors.Add(new SpinBotBehavior(this));
+            //robotBehaviors.Add(new OrbisBehavior(this));
+            //robotBehaviors.Add(new SpinBotBehavior(this));
+            robotBehaviors.Add(new ShockWaveBehavior(this));
             currentBehavior = robotBehaviors[currentBehaviorIndex];
         }
       
@@ -69,6 +70,11 @@ namespace Nervii
         public override void OnScannedRobot(ScannedRobotEvent enemy)
         {
             currentBehavior.OnScannedRobotBehavior(enemy);
+        }
+
+        public override void OnHitWall(HitWallEvent evnt)
+        {
+            currentBehavior.OnHitWallBehavior(evnt);
         }
 
         public override void OnWin(WinEvent evnt)

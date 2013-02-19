@@ -109,6 +109,10 @@ namespace Nervii
         {
             
         }
+        public void OnHitWallBehavior(HitWallEvent evnt)
+        {
+
+        }
 
         public void OnWinBehavior(WinEvent evnt) 
         {

@@ -17,6 +17,7 @@ namespace Nervii
         void OnScannedRobotBehavior(ScannedRobotEvent enemy);
         void OnHitByBulletBehavior(HitByBulletEvent evnt);
         void OnHitRobotBehavior(HitRobotEvent evnt);
+        void OnHitWallBehavior(HitWallEvent evnt);
         void OnWinBehavior(WinEvent evnt);
 
     }
