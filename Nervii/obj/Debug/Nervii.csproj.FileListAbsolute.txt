@@ -1,7 +1,0 @@
-d:\users\bgreen\documents\visual studio 2012\Projects\Nervii\Nervii\bin\Debug\Nervii.dll
-d:\users\bgreen\documents\visual studio 2012\Projects\Nervii\Nervii\bin\Debug\Nervii.pdb
-d:\users\bgreen\documents\visual studio 2012\Projects\Nervii\Nervii\bin\Debug\robocode.dll
-d:\users\bgreen\documents\visual studio 2012\Projects\Nervii\Nervii\bin\Debug\robocode.xml
-d:\users\bgreen\documents\visual studio 2012\Projects\Nervii\Nervii\obj\Debug\Nervii.dll
-d:\users\bgreen\documents\visual studio 2012\Projects\Nervii\Nervii\obj\Debug\Nervii.pdb
-D:\Users\bgreen\documents\visual studio 2012\Projects\Nervii\Nervii\obj\Debug\Nervii.csprojResolveAssemblyReference.cache
