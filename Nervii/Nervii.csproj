@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShockWave.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="IRobotBehavior.cs" />
     <Compile Include="Location.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="RobotExtensions.cs" />
     <Compile Include="ShapeShifter.cs" />
     <Compile Include="ShockWaveBehavior.cs" />
+    <Compile Include="SingleRobotBehavior.cs" />
     <Compile Include="SpinBotBehavior.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,8 +9,9 @@ using Robocode.Util;
 
 namespace Nervii
 {
-    public class OrbisBot : SingleRobotBehavior
+    public class ShockWave : SingleRobotBehavior
     {
+
         private IRobotBehavior robotBehavior;
 
         public override IRobotBehavior RobotBehavior
@@ -19,7 +20,7 @@ namespace Nervii
             {
                 if (robotBehavior == null)
                 {
-                    robotBehavior = new OrbisBehavior(this);
+                    robotBehavior = new ShockWaveBehavior(this);
                 }
                 return robotBehavior;
             }
