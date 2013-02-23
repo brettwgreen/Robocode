@@ -7,12 +7,12 @@ using Robocode;
 
 namespace Nervii
 {
-    public abstract class SingleRobotBehavior : Robot
+    public abstract class SingleAdvancedRobotBehavior : AdvancedRobot
     {
 
         abstract public IRobotBehavior RobotBehavior { get; }
 
-        public SingleRobotBehavior()
+        public SingleAdvancedRobotBehavior()
         {
         }
       

@@ -9,7 +9,7 @@ using Robocode.Util;
 
 namespace Nervii
 {
-    public class Rambot : SingleRobotBehavior
+    public class Rambot : SingleAdvancedRobotBehavior
     {
         private IRobotBehavior robotBehavior;
 

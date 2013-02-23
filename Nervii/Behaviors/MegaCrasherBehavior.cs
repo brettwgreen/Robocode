@@ -13,7 +13,7 @@ namespace Nervii
         public Robot Robot { get; set; }
         public string BehaviorName { get { return "MegaCrasher"; } }
 
-        public MegaCrasherBehavior(AdvancedRobot robot)
+        public MegaCrasherBehavior(Robot robot)
         {
             Robot = robot;
         }

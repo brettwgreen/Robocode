@@ -1,0 +1,7 @@
+C:\Users\Brett\Documents\Visual Studio 2012\Projects\Robocode\Nervii\bin\Debug\Nervii.dll
+C:\Users\Brett\Documents\Visual Studio 2012\Projects\Robocode\Nervii\bin\Debug\Nervii.pdb
+C:\Users\Brett\Documents\Visual Studio 2012\Projects\Robocode\Nervii\bin\Debug\robocode.dll
+C:\Users\Brett\Documents\Visual Studio 2012\Projects\Robocode\Nervii\bin\Debug\robocode.xml
+C:\Users\Brett\Documents\Visual Studio 2012\Projects\Robocode\Nervii\obj\Debug\Nervii.csprojResolveAssemblyReference.cache
+C:\Users\Brett\Documents\Visual Studio 2012\Projects\Robocode\Nervii\obj\Debug\Nervii.dll
+C:\Users\Brett\Documents\Visual Studio 2012\Projects\Robocode\Nervii\obj\Debug\Nervii.pdb

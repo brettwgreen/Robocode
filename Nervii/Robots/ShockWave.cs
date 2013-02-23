@@ -9,7 +9,7 @@ using Robocode.Util;
 
 namespace Nervii
 {
-    public class ShockWave : SingleRobotBehavior
+    public class ShockWave : SingleAdvancedRobotBehavior
     {
 
         private IRobotBehavior robotBehavior;

@@ -82,7 +82,7 @@ namespace Nervii
 
         public void OnWinBehavior(WinEvent evnt)
         {
-            //The Sprinker
+            //The Sprinkler
             for (var j = 5; j < 1000; j++)
             {
                 Robot.TurnLeft(j);
