@@ -8,7 +8,6 @@ namespace Nervii
     public class RambotBehavior : IRobotBehavior
     {
         public AdvancedRobot Robot { get; set; }
-
         public string BehaviorName { get { return "Rambot"; } }
 
         public RambotBehavior(AdvancedRobot robot)
@@ -18,48 +17,67 @@ namespace Nervii
 
         public void Setup()
         {
-            Robot.IsAdjustGunForRobotTurn = true;
             Robot.SetColors(Color.Yellow, Color.Fuchsia, Color.ForestGreen);
         }
 
         public void RunBehavior()
         {
-            Robot.MoveToPoint(400, 400);
+
+            //SpinUntilYouSeeSomething();
+            var rand = new Random();
+            var height = Math.Round(Robot.BattleFieldHeight * .5);
+            var width = Math.Round(Robot.BattleFieldWidth * .5);
+
+            var randomHeight = rand.Next(100, (int)height);
+            var randomWidth = rand.Next(100, (int)width);
+
+            Robot.MoveToPoint(randomWidth, randomHeight);
+            Robot.Scan();
         }
 
         public void OnScannedRobotBehavior(ScannedRobotEvent enemy)
         {
             Robot.ClearAllEvents();
-            TurnUntilYouLock(enemy);
-            Robot.Ahead(enemy.Distance/4); 
+            Robot.Ahead(enemy.Distance*1.3);
             Robot.Scan();
         }
 
         public void OnHitByBulletBehavior(HitByBulletEvent evnt)
         {
-            var heading = evnt.Heading;
-            var roboHeading = Robot.Heading;
-
-            Robot.TurnLeft(90);
-            Robot.Ahead(500);
-
+            Robot.TurnTo(evnt.Heading, Helpers.TurnType.Robot);
+            Robot.Ahead(50);
+            Robot.Scan();
+            Robot.TurnLeft(15);
+            Robot.Scan();
+            Robot.Ahead(50);
+            Robot.Scan();
+            Robot.TurnRight(15);
+            Robot.Scan();
+            Robot.Ahead(50);
+            Robot.Scan();
         }
 
         public void OnHitRobotBehavior(HitRobotEvent evnt)
         {
-            Robot.TurnLeft(50);
-            SpinUntilYouSeeSomething();
+            if (Robot.GunHeat == 0) { Robot.Fire(3); }
+            Robot.Back(100);
+            if (Robot.GunHeat == 0) { Robot.Fire(3); }
+            Robot.Scan();
         }
 
         public void OnHitWallBehavior(HitWallEvent evnt)
         {
             Robot.TurnLeft(180);
-            Robot.Ahead(500);
         }
 
         public void OnWinBehavior(WinEvent evnt)
         {
-            Robot.Fire(3);
+            //The Sprinker
+            for (var j = 5; j < 1000; j++)
+            {
+                Robot.TurnLeft(j);
+                Robot.TurnRight(j * 1.5);
+            }
         }
 
         public void TurnUntilYouLock(ScannedRobotEvent enemy)
@@ -83,11 +101,16 @@ namespace Nervii
         }
         public void SpinUntilYouSeeSomething()
         {
-            while (true)
-            {
+            
                 Robot.TurnRadarRight(5);
                 Robot.Scan();
-            }
+                Robot.Ahead(25);
+                Robot.TurnRight(5);
+            Robot.Scan();
+                Robot.Ahead(25);
+            Robot.Scan();
+            SpinUntilYouSeeSomething();
+            
         }
     }
 }
