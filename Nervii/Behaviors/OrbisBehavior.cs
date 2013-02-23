@@ -12,7 +12,7 @@ namespace Nervii
     public class OrbisBehavior : IRobotBehavior
     {
         public AdvancedRobot Robot { get; set; }
-        public string BehaviorName { get { return "Orbis Bot"; } }
+        public string BehaviorName { get { return "Orbis"; } }
 
         private Location[] Walls = new Location[4];
         private int currentWall = 0;

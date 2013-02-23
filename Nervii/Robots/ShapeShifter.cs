@@ -17,9 +17,8 @@ namespace Nervii
         public ShapeShifter()
         {
 
-            //robotBehaviors.Add(new OrbisBehavior(this));
-            //robotBehaviors.Add(new SpinBotBehavior(this));
             robotBehaviors.Add(new ShockWaveBehavior(this));
+            robotBehaviors.Add(new MegaCrasherBehavior(this));
             robotBehaviors.Add(new RambotBehavior(this));
             currentBehavior = robotBehaviors[currentBehaviorIndex];
         }

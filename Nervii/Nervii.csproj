@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Robots\Rambot.cs" />
     <Compile Include="Robots\MegaCrasher.cs" />
     <Compile Include="Behaviors\MegaCrasherBehavior.cs" />
     <Compile Include="Robots\ShockWave.cs" />

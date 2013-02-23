@@ -11,7 +11,7 @@ namespace Nervii
     public class SpinBotBehavior : IRobotBehavior
     {
         public AdvancedRobot Robot { get; set; }
-        public string BehaviorName { get { return "Spin Bot"; } }
+        public string BehaviorName { get { return "SpinBot"; } }
 
         public SpinBotBehavior(AdvancedRobot robot)
         {
