@@ -38,23 +38,33 @@ namespace Nervii
         public void OnScannedRobotBehavior(ScannedRobotEvent enemy)
         {
             Robot.ClearAllEvents();
-            Robot.Ahead(enemy.Distance*1.3);
+            if (enemy.Distance < 300)
+            {
+                Robot.Ahead(enemy.Distance * 1.3);
+            }
+            else
+            {
+                RunBehavior();
+            }
             Robot.Scan();
+
         }
 
         public void OnHitByBulletBehavior(HitByBulletEvent evnt)
         {
-            Robot.TurnTo(evnt.Heading, Helpers.TurnType.Robot);
-            Robot.Ahead(50);
-            Robot.Scan();
-            Robot.TurnLeft(15);
-            Robot.Scan();
-            Robot.Ahead(50);
-            Robot.Scan();
-            Robot.TurnRight(15);
-            Robot.Scan();
-            Robot.Ahead(50);
-            Robot.Scan();
+            var bearing = evnt.Bearing;
+            var directionToFace = 0;
+            var bearingMinus180 = bearing - 180;
+            if (bearingMinus180 > 0)
+            {
+                Robot.TurnTo(bearingMinus180, Helpers.TurnType.Robot);
+            }
+            else
+            {
+                Robot.TurnTo(bearing + 180, Helpers.TurnType.Robot);
+            }
+
+            Robot.Ahead(500);
         }
 
         public void OnHitRobotBehavior(HitRobotEvent evnt)
@@ -67,7 +77,7 @@ namespace Nervii
 
         public void OnHitWallBehavior(HitWallEvent evnt)
         {
-            Robot.TurnLeft(180);
+            RunBehavior();
         }
 
         public void OnWinBehavior(WinEvent evnt)
@@ -78,39 +88,6 @@ namespace Nervii
                 Robot.TurnLeft(j);
                 Robot.TurnRight(j * 1.5);
             }
-        }
-
-        public void TurnUntilYouLock(ScannedRobotEvent enemy)
-        {
-            while (enemy.Bearing > Math.Abs(3))
-            {
-                if (enemy.Bearing < 0)
-                {
-                    Robot.TurnRight(5);
-                    Robot.TurnRadarRight(5);
-                    Robot.Scan();
-                }
-                else
-                {
-                    Robot.TurnLeft(5);
-                    Robot.TurnRadarLeft(5);
-                    Robot.Scan();
-                }
-                TurnUntilYouLock(enemy);
-            }
-        }
-        public void SpinUntilYouSeeSomething()
-        {
-            
-                Robot.TurnRadarRight(5);
-                Robot.Scan();
-                Robot.Ahead(25);
-                Robot.TurnRight(5);
-            Robot.Scan();
-                Robot.Ahead(25);
-            Robot.Scan();
-            SpinUntilYouSeeSomething();
-            
         }
     }
 }
