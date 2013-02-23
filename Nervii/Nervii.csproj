@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MegaCrasher.cs" />
+    <Compile Include="MegaCrasherBehavior.cs" />
     <Compile Include="ShockWave.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="IRobotBehavior.cs" />

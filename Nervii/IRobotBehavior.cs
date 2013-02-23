@@ -10,7 +10,7 @@ namespace Nervii
 {
     public interface IRobotBehavior
     {
-        AdvancedRobot Robot { get; set; }
+        //AdvancedRobot Robot { get; set; }
         string BehaviorName { get; }
         void Setup();
         void RunBehavior();
