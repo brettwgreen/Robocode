@@ -1,5 +1,7 @@
-﻿using Robocode;
+﻿using System.Drawing;
+using Robocode;
 using System;
+using Nervii;
 
 namespace Nervii
 {
@@ -16,17 +18,21 @@ namespace Nervii
 
         public void Setup()
         {
-            throw new NotImplementedException();
+            Robot.IsAdjustGunForRobotTurn = true;
+            Robot.SetColors(Color.Yellow, Color.Fuchsia, Color.ForestGreen);
         }
 
         public void RunBehavior()
         {
-            throw new NotImplementedException();
+            Robot.MoveToPoint(400, 400);
         }
 
         public void OnScannedRobotBehavior(ScannedRobotEvent enemy)
         {
+            Robot.ClearAllEvents();
             TurnUntilYouLock(enemy);
+            Robot.Ahead(enemy.Distance/4); 
+            Robot.Scan();
         }
 
         public void OnHitByBulletBehavior(HitByBulletEvent evnt)
@@ -41,7 +47,8 @@ namespace Nervii
 
         public void OnHitRobotBehavior(HitRobotEvent evnt)
         {
-            throw new NotImplementedException();
+            Robot.TurnLeft(50);
+            SpinUntilYouSeeSomething();
         }
 
         public void OnHitWallBehavior(HitWallEvent evnt)
@@ -52,12 +59,12 @@ namespace Nervii
 
         public void OnWinBehavior(WinEvent evnt)
         {
-            throw new NotImplementedException();
+            Robot.Fire(3);
         }
 
         public void TurnUntilYouLock(ScannedRobotEvent enemy)
         {
-            while (enemy.Bearing > Math.Abs(0))
+            while (enemy.Bearing > Math.Abs(3))
             {
                 if (enemy.Bearing < 0)
                 {
@@ -72,6 +79,14 @@ namespace Nervii
                     Robot.Scan();
                 }
                 TurnUntilYouLock(enemy);
+            }
+        }
+        public void SpinUntilYouSeeSomething()
+        {
+            while (true)
+            {
+                Robot.TurnRadarRight(5);
+                Robot.Scan();
             }
         }
     }
