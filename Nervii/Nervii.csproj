@@ -44,28 +44,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MegaCrasher.cs" />
-    <Compile Include="MegaCrasherBehavior.cs" />
-    <Compile Include="ShockWave.cs" />
-    <Compile Include="Helpers.cs" />
-    <Compile Include="IRobotBehavior.cs" />
-    <Compile Include="Location.cs" />
-    <Compile Include="OrbisBehavior.cs" />
-    <Compile Include="OrbisBot.cs" />
+    <Compile Include="Robots\MegaCrasher.cs" />
+    <Compile Include="Behaviors\MegaCrasherBehavior.cs" />
+    <Compile Include="Robots\ShockWave.cs" />
+    <Compile Include="Helpers\Helpers.cs" />
+    <Compile Include="Interfaces\IRobotBehavior.cs" />
+    <Compile Include="Helpers\Location.cs" />
+    <Compile Include="Behaviors\OrbisBehavior.cs" />
+    <Compile Include="Robots\OrbisBot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RambotBehavior.cs" />
-    <Compile Include="RobotExtensions.cs" />
-    <Compile Include="ShapeShifter.cs" />
-    <Compile Include="ShockWaveBehavior.cs" />
-    <Compile Include="SingleRobotBehavior.cs" />
-    <Compile Include="SpinBotBehavior.cs" />
+    <Compile Include="Behaviors\RambotBehavior.cs" />
+    <Compile Include="Helpers\RobotExtensions.cs" />
+    <Compile Include="Robots\ShapeShifter.cs" />
+    <Compile Include="Behaviors\ShockWaveBehavior.cs" />
+    <Compile Include="Interfaces\SingleRobotBehavior.cs" />
+    <Compile Include="Behaviors\SpinBotBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
