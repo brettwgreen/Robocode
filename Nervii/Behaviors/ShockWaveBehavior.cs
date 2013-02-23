@@ -76,13 +76,13 @@ namespace Nervii
                 tracking = true;
                 headOn = true;
             }
-            Console.WriteLine("Enemy Heading = " + enemy.Heading.ToString());
-            Console.WriteLine("My Heading = " + Robot.Heading.ToString());
-            Console.WriteLine("Relative Path = " + relativePath.ToString());
-            Console.WriteLine("Distance = " + enemy.Distance.ToString());
-            Console.WriteLine("Velocity = " + enemy.Velocity.ToString());
-            Console.WriteLine("Tracking = " + tracking.ToString());
-            Console.WriteLine("GunHeat = " + Robot.GunHeat.ToString());
+            //Console.WriteLine("Enemy Heading = " + enemy.Heading.ToString());
+            //Console.WriteLine("My Heading = " + Robot.Heading.ToString());
+            //Console.WriteLine("Relative Path = " + relativePath.ToString());
+            //Console.WriteLine("Distance = " + enemy.Distance.ToString());
+            //Console.WriteLine("Velocity = " + enemy.Velocity.ToString());
+            //Console.WriteLine("Tracking = " + tracking.ToString());
+            //Console.WriteLine("GunHeat = " + Robot.GunHeat.ToString());
 
             double gunTurn = Utils.NormalRelativeAngleDegrees(enemy.Bearing + (Robot.Heading - Robot.RadarHeading));
  
@@ -140,8 +140,7 @@ namespace Nervii
 
         public void OnWinBehavior(WinEvent evnt)
         {
-            Robot.Stop();
-  
+            Robot.TurnGunLeft(double.MaxValue);
             Console.WriteLine("All your bots are belong to us");
         }
 

@@ -13,10 +13,11 @@ namespace Nervii
         private List<IRobotBehavior> robotBehaviors = new List<IRobotBehavior>();
         private int currentBehaviorIndex = 0;
         private IRobotBehavior currentBehavior;
+        private static int kills = 0;
+        private static int deaths = 0;
 
         public ShapeShifter()
         {
-
             robotBehaviors.Add(new ShockWaveBehavior(this));
             robotBehaviors.Add(new MegaCrasherBehavior(this));
             robotBehaviors.Add(new RambotBehavior(this));
@@ -25,17 +26,19 @@ namespace Nervii
       
         private void SetNextBehavior()
         {
-            if (currentBehaviorIndex == robotBehaviors.Count() - 1)
+            if (kills < deaths)
             {
-                currentBehaviorIndex = 0;
+                if (currentBehaviorIndex == robotBehaviors.Count() - 1)
+                {
+                    currentBehaviorIndex = 0;
+                }
+                else
+                {
+                    currentBehaviorIndex++;
+                }
+                currentBehavior = robotBehaviors[currentBehaviorIndex];
+                Console.WriteLine("Switching to " + currentBehavior.BehaviorName);
             }
-            else
-            {
-                currentBehaviorIndex++;
-            }
-            currentBehavior = robotBehaviors[currentBehaviorIndex];
-            Console.WriteLine("Switching to " + currentBehavior.BehaviorName);
-
         }
 
         private void SetColors()
@@ -49,8 +52,9 @@ namespace Nervii
         public override void Run()
         {
             Console.WriteLine("Starting up");
-            SetColors();
             currentBehavior.Setup();
+            SetColors();
+
             while (true)
             {
                 currentBehavior.RunBehavior();
@@ -82,13 +86,25 @@ namespace Nervii
             currentBehavior.OnWinBehavior(evnt);
         }
 
+        public override void OnBulletHit(BulletHitEvent evnt)
+        {
+            if (evnt.VictimEnergy == 0)
+            {
+                kills++;
+                Console.WriteLine(String.Format("Deaths = {0}, Kills = {1}", deaths, kills));
+            }
+        }
+
         public override void OnDeath(DeathEvent evnt)
         {
+            deaths++;
+            Console.WriteLine(String.Format("Deaths = {0}, Kills = {1}", deaths, kills));
             SetNextBehavior();
         }
+
         public override void OnKeyPressed(KeyEvent e)
         {
-            currentBehaviorIndex++;
+            //currentBehaviorIndex++;
         }
 
     }
