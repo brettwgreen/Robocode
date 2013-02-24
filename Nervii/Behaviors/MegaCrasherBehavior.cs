@@ -95,7 +95,7 @@ namespace Nervii
         public void OnScannedRobotBehavior(ScannedRobotEvent enemy)
         {
             // Shoot at stuff
-            Robot.Fire(3);
+            Robot.SafeFire(3, enemy.Name);
         }
 
         public void OnHitByBulletBehavior(HitByBulletEvent evnt)

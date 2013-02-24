@@ -7,12 +7,18 @@ namespace Nervii
 {
     public class RambotBehavior : IRobotBehavior
     {
-        public AdvancedRobot Robot { get; set; }
+        public Robot Robot { get; set; }
         public string BehaviorName { get { return "Rambot"; } }
+        public Random rand;
+        double height = 0.0;
+        double width = 0.0;
 
-        public RambotBehavior(AdvancedRobot robot)
+        public RambotBehavior(Robot robot)
         {
             Robot = robot;
+            rand = new Random(872349872);
+            height = Math.Round(Robot.BattleFieldHeight);
+            width = Math.Round(Robot.BattleFieldWidth);
         }
 
         public void Setup()
@@ -22,22 +28,15 @@ namespace Nervii
 
         public void RunBehavior()
         {
-
-            //SpinUntilYouSeeSomething();
-            var rand = new Random();
-            var height = Math.Round(Robot.BattleFieldHeight * .5);
-            var width = Math.Round(Robot.BattleFieldWidth * .5);
-
-            var randomHeight = rand.Next(100, (int)height);
-            var randomWidth = rand.Next(100, (int)width);
-
+            var randomHeight = rand.Next(100, (int)height - 100);
+            var randomWidth = rand.Next(100, (int)width - 100);
             Robot.MoveToPoint(randomWidth, randomHeight);
+            Console.WriteLine("Height: " + randomHeight + " Width: " + randomWidth);
             Robot.Scan();
         }
 
         public void OnScannedRobotBehavior(ScannedRobotEvent enemy)
         {
-            Robot.ClearAllEvents();
             if (enemy.Distance < 300)
             {
                 Robot.Ahead(enemy.Distance * 1.3);
@@ -69,9 +68,9 @@ namespace Nervii
 
         public void OnHitRobotBehavior(HitRobotEvent evnt)
         {
-            if (Robot.GunHeat == 0) { Robot.Fire(3); }
+            if (Robot.GunHeat == 0) { Robot.SafeFire(3, evnt.Name); }
             Robot.Back(100);
-            if (Robot.GunHeat == 0) { Robot.Fire(3); }
+            if (Robot.GunHeat == 0) { Robot.SafeFire(3, evnt.Name); }
             Robot.Scan();
         }
 

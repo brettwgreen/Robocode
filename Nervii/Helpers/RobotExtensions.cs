@@ -88,6 +88,19 @@ namespace Nervii
             //Console.WriteLine(String.Format("Turning {0} {1} from heading {2}", Enum.GetName(type.GetType(), type), angle, robot.Heading.ToString()));
         }
 
+        public static bool IsEnemy(this Robot robot, string enemyName)
+        {
+            return !enemyName.ToLower().Contains("nervii") || robot.Others == 1;
+        }
+
+        public static void SafeFire(this Robot robot, double power, string enemyName) {
+            //Console.Write("Enemy == " + enemyName);
+            if (!enemyName.ToLower().Contains("nervii") || robot.Others == 1)
+            {
+                robot.Fire(power);
+            }
+        }
+
         public static void MoveToPoint(this Robot robot, double destX, double destY)
         {
             var angle = Helpers.GetAngle(robot.X, robot.Y, destX, destY);
